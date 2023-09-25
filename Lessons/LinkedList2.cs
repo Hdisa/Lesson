@@ -69,40 +69,53 @@ namespace AlgorithmsDataStructures
 
         public bool Remove(int _value)
         {
-            Node? current = head;
-            Node? previous = null;
-            
+            Node current = head;
+
             while (current != null)
             {
-                if (current.value == _value)
+                if (!current.value.Equals(_value))
                 {
-                    //if node is in middle or in the end of list
-                    if (previous != null)
-                    {
-                        previous.next = current.next; // removing current node. Now previous node reference to current.next
-                        current.prev = previous;
-                        
-                        //if current node is the last
-                        if (current.next == null)
-                            tail = previous;
-                        
-                    }
-                    else
-                    {
-                        //if removing a first node in list
-                        head = head.next;
-                        head.prev = null;
- 
-                        //if after removing head a list is empty
-                        if (head == null)
-                            tail = null;
-                    }
-                    return true; // the node has been deleted;
+                    current = current.next;
+                    continue;
                 }
- 
-                previous = current;
-                current = current.next;
+
+                //head case
+                if (current.prev == null)
+                {
+                    head = current.next;
+                    
+                    //there was only one element and now empty
+                    if (head == null)
+                    {
+                        tail = null;
+                        return true;
+                    }
+                    
+                    head.prev = null;
+                    
+                    //head and point the same
+                    if (head.next == null)
+                    {
+                        tail.prev = null;
+                    }
+
+                    return true;
+                }
+
+                //tail case
+                if (current.next == null)
+                {
+                    tail = current.prev;
+                    tail.next = null;
+                    return true;
+                }
+
+                // move pointers
+                current.prev.next = current.next;
+                current.next.prev = current.prev;
+                return true;
             }
+
             return false;
         }
 
