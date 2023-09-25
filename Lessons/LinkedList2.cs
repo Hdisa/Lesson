@@ -3,20 +3,25 @@ using System.Collections.Generic;
 
 namespace AlgorithmsDataStructures
 {
-/*
+
     public class Node
     {
         public int value;
-        public Node next;
-        public Node(int _value) { value = _value; }
+        public Node next, prev;
+
+        public Node(int _value) { 
+            value = _value; 
+            next = null;
+            prev = null;
+        }
     }
 
-    public class LinkedList
+    public class LinkedList2
     {
         public Node head;
         public Node tail;
 
-        public LinkedList()
+        public LinkedList2()
         {
             head = null;
             tail = null;
@@ -24,8 +29,14 @@ namespace AlgorithmsDataStructures
 
         public void AddInTail(Node _item)
         {
-            if (head == null) head = _item;
-            else              tail.next = _item;
+            if (head == null) {
+                head = _item;
+                head.next = null;
+                head.prev = null;
+            } else {
+                tail.next = _item;
+                _item.prev = tail;
+            }
             tail = _item;
         }
 
@@ -37,12 +48,14 @@ namespace AlgorithmsDataStructures
                 if (node.value == _value) return node;
                 node = node.next;
             }
+            
             return null;
         }
 
         public List<Node> FindAll(int _value)
         {
             List<Node> nodes = new List<Node>();
+            
             Node current = head;
             while (current != null)
             {
@@ -67,15 +80,18 @@ namespace AlgorithmsDataStructures
                     if (previous != null)
                     {
                         previous.next = current.next; // removing current node. Now previous node reference to current.next
+                        current.prev = previous;
                         
                         //if current node is the last
                         if (current.next == null)
                             tail = previous;
+                        
                     }
                     else
                     {
                         //if removing a first node in list
                         head = head.next;
+                        head.prev = null;
  
                         //if after removing head a list is empty
                         if (head == null)
@@ -117,40 +133,53 @@ namespace AlgorithmsDataStructures
 
         public void InsertAfter(Node _nodeAfter, Node _nodeToInsert)
         {
-            Node current = head;
-            
             if (_nodeAfter == null)
             {
                 if (head == null)
                 {
                     head = _nodeToInsert;
+                    head.next = null;
+                    head.prev = null;
                     tail = _nodeToInsert;
-                    return;
                 }
-
-                _nodeToInsert.next = head;
-                head = _nodeToInsert;
+                else
+                {
+                    _nodeToInsert.next = head;
+                    head.prev = _nodeToInsert;
+                    head = _nodeToInsert;
+                }
                 return;
             }
-            
+
+            Node current = head;
+
             while (current != null)
             {
-                if (_nodeAfter.value == current.value)
+                if (current.value != _nodeAfter.value)
                 {
-                    Node afterInsert = current.next;
-                    
-                    if (afterInsert == null)
-                        tail = _nodeToInsert;
-                    
-                    current.next = _nodeToInsert;
-                    _nodeToInsert.next = afterInsert;
-                    break;
+                    current = current.next;
+                    continue;
+                }
+
+                //next is tail
+                if (current.next == null)
+                {
+                    _nodeToInsert.next = null;
+                    tail = _nodeToInsert;
+                }
+                //next not tail
+                else
+                {
+                    _nodeToInsert.next = current.next;
+                    _nodeToInsert.next.prev = _nodeToInsert;
                 }
                 
-                current = current.next;
+                _nodeToInsert.prev = current;
+                current.next = _nodeToInsert;
+                return;
             }
+
         }
 
     }
-    */
 }
