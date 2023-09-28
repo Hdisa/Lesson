@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace AlgorithmsDataStructures
 {
 
-    public class Node
+    public class NodeList
     {
         public int value;
-        public Node next, prev;
+        public NodeList next, prev;
 
-        public Node(int _value) { 
+        public NodeList(int _value) { 
             value = _value; 
             next = null;
             prev = null;
@@ -18,8 +18,8 @@ namespace AlgorithmsDataStructures
 
     public class LinkedList2
     {
-        public Node head;
-        public Node tail;
+        public NodeList head;
+        public NodeList tail;
 
         public LinkedList2()
         {
@@ -27,7 +27,7 @@ namespace AlgorithmsDataStructures
             tail = null;
         }
 
-        public void AddInTail(Node _item)
+        public void AddInTail(NodeList _item)
         {
             if (head == null) {
                 head = _item;
@@ -40,9 +40,9 @@ namespace AlgorithmsDataStructures
             tail = _item;
         }
 
-        public Node Find(int _value)
+        public NodeList Find(int _value)
         {
-            Node node = head;
+            NodeList node = head;
             while (node != null)
             {
                 if (node.value == _value) return node;
@@ -52,11 +52,11 @@ namespace AlgorithmsDataStructures
             return null;
         }
 
-        public List<Node> FindAll(int _value)
+        public List<NodeList> FindAll(int _value)
         {
-            List<Node> nodes = new List<Node>();
+            List<NodeList> nodes = new List<NodeList>();
             
-            Node current = head;
+            NodeList current = head;
             while (current != null)
             {
                 if (current.value == _value)
@@ -69,7 +69,7 @@ namespace AlgorithmsDataStructures
 
         public bool Remove(int _value)
         {
-            Node current = head;
+            NodeList current = head;
 
             while (current != null)
             {
@@ -135,7 +135,7 @@ namespace AlgorithmsDataStructures
         public int Count()
         {
             int count = 0;
-            Node node = head;
+            NodeList node = head;
             while (node != null)
             {
                 count++;
@@ -144,7 +144,7 @@ namespace AlgorithmsDataStructures
             return count;
         }
 
-        public void InsertAfter(Node _nodeAfter, Node _nodeToInsert)
+        public void InsertAfter(NodeList _nodeAfter, NodeList _nodeToInsert)
         {
             if (_nodeAfter == null)
             {
@@ -164,7 +164,7 @@ namespace AlgorithmsDataStructures
                 return;
             }
 
-            Node current = head;
+            NodeList current = head;
 
             while (current != null)
             {

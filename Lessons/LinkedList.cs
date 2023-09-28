@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace AlgorithmsDataStructures
 {
-/*
     public class Node
     {
         public int value;
@@ -152,5 +151,4 @@ namespace AlgorithmsDataStructures
         }
 
     }
-    */
 }
