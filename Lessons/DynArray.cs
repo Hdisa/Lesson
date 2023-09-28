@@ -25,8 +25,8 @@ namespace AlgorithmsDataStructures
 
         public T GetItem(int index)
         {
-            try{ return array[index]; }
-            catch{ throw new IndexOutOfRangeException(); }
+            CheckIndexRange(index);
+            return array[index];
         }
 
         public void Append(T itm)
@@ -39,9 +39,7 @@ namespace AlgorithmsDataStructures
 
         public void Insert(T itm, int index)
         {
-            if (index >= capacity)
-                throw new IndexOutOfRangeException();
-            
+            CheckIndexRange(index);
             CheckforExpandArray();
 
             for (int i = index; i < capacity; i++)
@@ -57,6 +55,8 @@ namespace AlgorithmsDataStructures
         {
             if (count == 0)
                 throw new IndexOutOfRangeException();
+
+            CheckIndexRange(index);
             
             for (int i = index; i < count - 1; i++)
             {
@@ -90,6 +90,11 @@ namespace AlgorithmsDataStructures
                 MakeArray(MinimumCapacity);
             else
                 MakeArray(newCapacity);
+        }
+        private void CheckIndexRange(int index)
+        {
+            if (index > count || index < 0)
+                throw new IndexOutOfRangeException();
         }
     }
 }
