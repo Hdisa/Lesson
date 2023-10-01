@@ -10,7 +10,7 @@ namespace AlgorithmsDataStructures
         
         public Stack()
         {
-            // инициализация внутреннего хранилища стека
+            // Initiating inner storage especially for Stack
             _linkedList = new LinkedList<T>();
         } 
 
