@@ -7,6 +7,7 @@ namespace AlgorithmsDataStructures
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

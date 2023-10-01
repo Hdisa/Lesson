@@ -20,4 +20,16 @@
     </ItemGroup>
 
 
+
+    <ItemGroup>
+      <Compile Remove="Tests\LinkedListTests.cs" />
+      <None Include="Tests\LinkedListTests.cs" />
+      <Compile Remove="Tests\LinkedList2Tests.cs" />
+      <None Include="Tests\LinkedList2Tests.cs" />
+      <Compile Remove="Tests\DynArrayTests.cs" />
+      <None Include="Tests\DynArrayTests.cs" />
+      <Compile Remove="Tests\StackTests.cs" />
+      <None Include="Tests\StackTests.cs" />
+    </ItemGroup>
+
 </Project>
