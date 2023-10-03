@@ -20,7 +20,7 @@ namespace AlgorithmsDataStructures
 
         public T Dequeue()
         {
-            if (_linkedList.Count == 0) return default(T); // if Queue is empty
+            if (_linkedList.Count == 0) return default(T);
 
             T result = _linkedList.First.Value;
             _linkedList.RemoveFirst();
