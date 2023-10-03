@@ -30,6 +30,8 @@
       <None Include="Tests\DynArrayTests.cs" />
       <Compile Remove="Tests\StackTests.cs" />
       <None Include="Tests\StackTests.cs" />
+      <Compile Remove="Tests\QueueTests.cs" />
+      <None Include="Tests\QueueTests.cs" />
     </ItemGroup>
 
 </Project>
