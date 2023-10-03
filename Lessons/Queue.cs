@@ -10,19 +10,16 @@ namespace AlgorithmsDataStructures
         
         public Queue()
         {
-            // инициализация внутреннего хранилища очереди
             _linkedList = new LinkedList<T>();
         } 
 
         public void Enqueue(T item)
         {
-            // input to tail
             _linkedList.AddLast(item);
         }
 
         public T Dequeue()
         {
-            // giving from head
             if (_linkedList.Count == 0) return default(T); // if Queue is empty
 
             T result = _linkedList.First.Value;
@@ -32,7 +29,7 @@ namespace AlgorithmsDataStructures
 
         public int Size()
         {
-            return _linkedList.Count; // Queue size
+            return _linkedList.Count;
         }
 
         public LinkedList<T> SpinQueue(int iteration)
