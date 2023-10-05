@@ -32,6 +32,8 @@
       <None Include="Tests\StackTests.cs" />
       <Compile Remove="Tests\QueueTests.cs" />
       <None Include="Tests\QueueTests.cs" />
+      <Compile Remove="Tests\DequeTests.cs" />
+      <None Include="Tests\DequeTests.cs" />
     </ItemGroup>
 
 </Project>
