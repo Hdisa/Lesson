@@ -149,8 +149,7 @@ namespace AlgorithmsDataStructures
             return count;
         }
 
-        public List<Node<T>> GetAll() // выдать все элементы упорядоченного 
-            // списка в виде стандартного списка
+        public List<Node<T>> GetAll()
         {
             var r = new List<Node<T>>();
             var node = head;

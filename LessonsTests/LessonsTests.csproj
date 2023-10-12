@@ -36,6 +36,8 @@
       <None Include="Tests\DequeTests.cs" />
       <Compile Remove="Tests\OrderedListTests.cs" />
       <None Include="Tests\OrderedListTests.cs" />
+      <Compile Remove="Tests\HashTableTests.cs" />
+      <None Include="Tests\HashTableTests.cs" />
     </ItemGroup>
 
 </Project>
