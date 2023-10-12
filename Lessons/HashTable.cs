@@ -20,12 +20,11 @@ namespace AlgorithmsDataStructures
 
         public int HashFun(string value)
         {
-            int hashSum = 0;
+            int hash = 0;
             byte[] data = System.Text.Encoding.UTF8.GetBytes(value);
-            for (int i = 0; i < data.Length; i++) hashSum += data[i];
-
-            int hash = hashSum % size;
-            return hash;
+            for (int i = 0; i < data.Length; i++) hash += data[i];
+            
+            return hash % size;
         }
 
         public int SeekSlot(string value)
@@ -47,17 +46,17 @@ namespace AlgorithmsDataStructures
                     return hash;
                 
             } while (stepScale < size);
+            
             return -1;
         }
 
         public int Put(string value)
         {
-            int hash = HashFun(value);
+            int hash = SeekSlot(value);
             
-            if(hash == -1)
-                return -1;
+            if(hash != -1)
+                slots[hash] = value;
             
-            slots[hash] = value;
             return hash;
         }
 
