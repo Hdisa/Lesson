@@ -40,6 +40,8 @@
       <None Include="Tests\HashTableTests.cs" />
       <Compile Remove="Tests\NativeDictionaryTests.cs" />
       <None Include="Tests\NativeDictionaryTests.cs" />
+      <Compile Remove="Tests\PowerSetTests.cs" />
+      <None Include="Tests\PowerSetTests.cs" />
     </ItemGroup>
 
 </Project>
