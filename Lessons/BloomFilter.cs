@@ -7,12 +7,12 @@ namespace AlgorithmsDataStructures
     public class BloomFilter
     {
         public int filter_len;
-        public int[] filterArray;
+        public int bit;
 
         public BloomFilter(int f_len)
         {
             filter_len = f_len;
-            filterArray = new int[filter_len];
+            bit = 0;
         }
         
         public int Hash1(string str1)
@@ -46,9 +46,9 @@ namespace AlgorithmsDataStructures
         {
             int bitHash1 = Hash1(str1);
             int bitHash2 = Hash2(str1);
-
-            filterArray[bitHash1] = 1;
-            filterArray[bitHash2] = 1;
+            
+            bit |= 1 << bitHash1;
+            bit |= 1 << bitHash2;
         }
 
         public bool IsValue(string str1)
@@ -56,7 +56,7 @@ namespace AlgorithmsDataStructures
             int bitHash1 = Hash1(str1);
             int bitHash2 = Hash2(str1);
             
-            return filterArray[bitHash1] == 1 && filterArray[bitHash2] == 1;
+            return (bit & (1 << bitHash1)) != 0 && (bit & (1 << bitHash2)) != 0;
         }
     }
 }
