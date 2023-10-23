@@ -44,6 +44,8 @@
       <None Include="Tests\PowerSetTests.cs" />
       <Compile Remove="Tests\BloomFilterTests.cs" />
       <None Include="Tests\BloomFilterTests.cs" />
+      <Compile Remove="Tests\NativeCacheTests.cs" />
+      <None Include="Tests\NativeCacheTests.cs" />
     </ItemGroup>
 
 </Project>
