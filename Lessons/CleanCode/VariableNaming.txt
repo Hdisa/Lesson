@@ -1,0 +1,37 @@
+~~  Variable Naming ~~
+
+count - countElementsInLinkedList
+//Количество элементов в связном списке.
+
+hash - hashSum
+//Результат обработки хэш-функций.
+
+hash - hashIndex
+//Индекс слота после обработки хэш-суммы по формуле hashSum % n, где n - количество слотов в хэш-таблице.
+
+temp - tempInKelvin
+//Значение температуры в кельвинах.
+
+p - numPower
+//Степень числа.
+
+rNum - randomNum
+//Случайное число.
+
+postCode - postalCode
+//Значение почтового индекса.
+
+age - ageInYears
+//Возраст в годах.
+
+health - healthPoint
+//Количество здоровья игрока.
+
+convertValue - convertKilogramPoundPair
+//Коэффициент преобразования пары килограмм и фунты.
+
+head - headNode
+//Узел связанного списка, находящийся в голове.
+
+tail - tailNode
+//Узел связанного списка, находящийся на хвосте.
