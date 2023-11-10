@@ -1,4 +1,4 @@
-~~  Variable Naming ~~
+~~  Variable Naming Ch.1 ~~
 
 count - countElementsInLinkedList
 //Количество элементов в связном списке.
