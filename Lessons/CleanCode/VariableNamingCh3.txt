@@ -1,0 +1,38 @@
+~~ Variable Naming Ch.3 ~~
+
+7.1
+    empty - isEmpty
+    unlocked - isUnlocked
+    verified - isVerified
+    scrollable - canScrollVertically
+    remove - isRemoved
+    
+7.2
+    done
+    //Успешное завершение операции.
+    
+    ok
+    //Когда пользователь подтвердил настройки программы.
+    
+    error
+    //Когда пользователь ввёл некорректный для ввода данные. Например при указании возраста напечатал отрицательное число.
+    
+7.3
+    foreach(digit in number)
+    {
+        ...
+    }
+    //Перебор цифр из числа.
+    
+7.4
+    ascending / descending
+    locked / unlocked
+    next / previous
+7.5
+    tmp - bufferNode
+    //Узел для добавления в список между другими узлами.
+    
+    isRemoved
+    //Такие временные переменные не требуется, да и просто избыточен, поскольку можно сразу возвращать результат метода непосредственно.
+    
+    digit - digitOfNumber
