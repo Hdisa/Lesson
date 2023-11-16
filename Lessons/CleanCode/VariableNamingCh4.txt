@@ -1,0 +1,37 @@
+~~ Variable Naming Ch.4: "Wrong" Names ~~
+
+1) maxSym - maxWordSymbolCount
+//Максимальное количество символов в слове.
+
+2) distance - distanceMetre
+//Расстояние в метрах.
+
+3) bitHash1, bitHash2 - firstBitHash, secondBitHash
+//Битовые хеши.
+
+4) result - removedValue
+//Возращает в качестве результата извлечённое значение.
+
+5) averageNum - averageNumInArray
+//Среднее число в массиве
+
+6) name - playerName
+//Имя игрока.
+
+7) diagonal1, diagonal2 - primaryDiagonal, secondaryDiagonal
+//Главный и побочный диагонали матрицы.
+
+8) playerNum - playerId
+//Идентификационный номер игрока.
+
+9) op - inputArithmeticOperation
+//Ввод значения арифметической операций. Например: "add", "substract" и т.д.
+
+10) sumValues - sumOfNegativeNumbers
+//Сумма отрицательных чисел.
+
+11) vowels - englishVowelCount
+//Количество гласных из английского языка в слове.
+
+12) rotateSpeed - rotateSpeedMps
+//Скорость вращения в метрах секунду.
