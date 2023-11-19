@@ -1,0 +1,29 @@
+~~ Class Naming ~~
+
+3.1
+
+1) GameManager - Game
+
+2) PlayerData - Player
+
+3) CreateTerrain - TerrainGenerator
+
+4) AdMob - Mob
+
+5) ArenaStartGame - Arena
+
+3.2
+
+1) RemoveItem, DeleteFromInventory - RemoveFromInventory
+
+2) GetKeyDown, ObtainItem - GetKeyDown, GetItem
+
+3) CreateObject, GenerateTerrain - GenerateObject, GenerateTerrain
+
+4) MeetingObject CollideWall - CollideObject
+
+5) EditDialogueText, ChangePlayer - EditDialogueText, EditPlayer
+
+6) CountWeight CalculateVelocity - CountWeight, CountVelocity
+
+7) AddPlayer PutToInventory - AddPlayer, AddToInventory
