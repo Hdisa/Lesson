@@ -1,0 +1,37 @@
+~~ Method Naming ~~
+
+1)Hash - GetHashSum
+//Получаем хэш-сумму.
+
+2)LoadedMap - IsMapLoaded
+//Проверка загружена ли карта.
+
+3)DayTime - CheckTimeOfDay
+//Проверка времени суток.
+
+4)SumItem - CountSameItem
+//Считает количество одинаковых предметов.
+
+5)ItemInfo - GetItemDescription
+//Получаем описание предмета.
+
+6)TimeSet - SetTimeOfDay
+//Устанавливаем время суток (день, ночь, рассвет, закат).
+
+7)DeadPlayer - IsPlayerDied
+//Проверка если игрок (вернее, игровой персонаж) умер.
+
+8)NextMap - LoadNextMap
+//Загрузка следующей карты.
+
+9)Save - SaveGame
+//Сохранение игры.
+
+10)NightMap - isNightOnMap
+//Проверка ночь ли на карте.
+
+11)SumSmallestNum - SumTwoSmallestNumber
+//Складывает двое самых мешьших чисел.
+
+12)PlayerCoords - GetPlayerCoordinate
+//Получение расположения игрока.
