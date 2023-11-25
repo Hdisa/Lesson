@@ -1,0 +1,15 @@
+~~ OOP and Interfaces ~~
+
+3.1
+
+AreaFigure rightTriangleArea = AreaFigure.CalculateRightTriangle(double cathetusFirst, cathetusSecond);
+
+AreaFigure squareArea = AreaFigure.CalculateSquare(double side);
+
+AreaFigure rhombusArea  = AreaFigure.CalculateRhombus(double side, double height);
+
+3.2
+
+1)CharacterClass //Этот класс могут наследовать Warrior, Wizard, Archer и др.
+
+2)Animal //Этот класс могут наследовать Bird, Reptile и др.
