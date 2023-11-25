@@ -2,11 +2,11 @@
 
 3.1
 
-AreaFigure rightTriangleArea = AreaFigure.CalculateRightTriangle(double cathetusFirst, cathetusSecond);
+1)AreaFigure rightTriangleArea = AreaFigure.CalculateRightTriangle(double cathetusFirst, cathetusSecond);
 
-AreaFigure squareArea = AreaFigure.CalculateSquare(double side);
+2)AreaFigure squareArea = AreaFigure.CalculateSquare(double side);
 
-AreaFigure rhombusArea  = AreaFigure.CalculateRhombus(double side, double height);
+3)AreaFigure rhombusArea  = AreaFigure.CalculateRhombus(double side, double height);
 
 3.2
 
