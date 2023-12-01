@@ -1,0 +1,52 @@
+~~ Data Types ~~
+
+1)  damageRatio = 0;
+    if(minDamage == 0) { ... }
+    else {
+        damageRatio = maxDamage / minDamage;
+    }
+//Сделал проверку на 0 в знаменателе.
+
+2) VOTE_BONUS = 1.5;
+// Параметризировал константу.
+
+3) mapVotes += isUserSubscribed ? VOTE_BONUS : 1;
+// Переписал часть кода из условного оператора в тернарный.
+
+4) DAMAGE_MULTIPLIER = 2;
+//Аналогично 2-му пункту.
+
+5)  double dotLocation = 3.569453...;
+    float approxDotLocation = (float)dotLocation;
+// Сделал сужающийся преобразование тип данных явным.
+
+6)  dropProbability = 0;
+    if(totalOutcomes != 0) {
+    dropProbability = luckOutcomes / totalOutcomes;
+    }
+//Аналогично 1-й, только немного в другой форме.
+
+7)
+    bool flag = diagonals.TryGetValue(hits[i], out var array);
+    bool notFound = Array.IndexOf(array, hits[i + 1]) == -1;
+    if (flag && notFound)
+//Добавил логическую переменную в условный оператор для повышения читабельности.
+
+8)  bool statRequired = healthPoint >= 200 && armorPoint >= 100 && weaponTier >= 3;
+    if(statRequired) { ... }
+//Аналогично с 7-м пунктом.
+
+9)  bool included = arrayRoundLength[i] != '0' && arrayRoundLength[i] != ',';
+    if(included) { ... }
+//Аналогично предыдущему пункту.
+
+10)ENGINE_EFFICIENCY = 0.92;
+//Параметризировал КПД двигателя.
+
+11)DISCOUNT = 0.15;
+//Аналогично предыдущему пункту.
+
+12) for (int i = 2; i <= N; i++) {
+       checked(powerNum *= i);
+   }
+//Сделал проверку на переполнение.
