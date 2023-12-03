@@ -1,0 +1,175 @@
+~~ Variable Values ~~
+
+1) CELL_FIELD_X = 16
+   CELL_FIELD_Y = 16
+//Объявление переменных-хранилищ(константы), хранящие размеры игрового поля по Х и Y соответственно.
+
+2) PI = 3.14;
+   E = 2.71;
+//Объявление переменных-хранилищ(константы), хранящие математические значения.
+
+3) До:
+   sumOfNumbers = 0;
+   //код
+   foreach(int n in numbers){
+        sumOfNumbers += n;
+   }
+   
+   После:
+   sumOfNumbers = 0;
+   foreach(int n in numbers){
+        sumOfNumbers += n;
+   }
+//Объявил переменную непосредственно перед использованием.
+
+4) sumOfNumbers = 0;
+   foreach(int n in numbers){
+        sumOfNumbers += n;
+   }
+   //код
+   sumOfNumbers = 0;
+//Обнулил счётчик.
+
+5) string numberString = n.ToString();
+   int[] digits = new int[numberString.Length];
+          
+   string squaredDigitsString = "";
+   foreach (var digitString in numberString){
+        if (int.TryParse(digitString.ToString(), out n)){
+            resultString += string.Join("", Math.Pow(n, 2));
+        }
+   }
+   
+   int squaredDigits = 0;
+   int.TryParse(squaredDigitsString, out squaredDigits);
+   return squaredDigits;
+//Объявил переменную непосредственно перед использованием.
+
+6) До:
+   var count = numbers.Count;
+   if (count > 0)
+   {
+        var i = 0;
+  
+        for (var j = 1; j < count; ++j)
+        {
+            if (numbers[j] < numbers[i])
+            {
+            i = j;
+            }
+        }
+  
+        numbers.RemoveAt(i);
+   }
+   return numbers;
+   
+   После:
+   numbers.Remove(numbers.Min());
+   return numbers;
+//Подчистую переписал код. В частности, избавился от лишних переменных.
+
+7) int spaceCount = 0;
+   for(int j = 0; j < col; j ++){
+       int i;
+       for(i = 0; i < row; i ++){
+           if(j * col + i + spaceCount < s.length()){
+              pack[i][j] = s.charAt(j * col + i + spaceCount);
+           }
+       }
+       if(j * col + i + spaceCount < s.length() && s.charAt(j * col + i + spaceCount) == ' '){
+           spaceCount ++;
+       }
+  }
+  spaceCount = -1;
+//Завершил работу с переменным.
+
+8) errorsСount = 0;
+   foreach(int validator in validators){
+        //код
+   }
+   errorsСount = -1;
+//Аналочично с предыдучим пунктом.
+
+9) BOSS_HEALTH = 1060;
+   BOSS_ARMOR = "Shading Armor";
+   BOSS_WEAPON = "Ultima";
+//Объявление переменных-хранилищ(константы), хранящие игровые характеристики босса.
+
+10) До:
+    public Warrior(string name, int health, int minDamage, int maxDamage)
+    {
+        _name = name;
+        _health = health;
+        _minDamage = minDamage;
+        _maxDamage = maxDamage;
+    }
+    
+    После:
+    public Warrior(string name, int health, string weaponType)
+    {
+        _name = name;
+        _health = health;
+        _armorType = "Heavy Armor";
+        _weaponType = "Two-Handed";
+    }
+//Инициализировал все поля класса в конструкторе.
+
+11)До:
+   var line = 0;
+   return lines.Select(s => $"{++line}: {s}").ToList();
+   
+   После:
+   return lines.Select((x, i) => $"{i + 1}: {x}").ToList();
+//Избавился от лишнего переменного.
+
+12) До:
+    String result = "";
+    //код
+    char [] arrayRoundLength = roundLength.toCharArray();
+    for(int i = 0; i < arrayRoundLength.length; i ++){
+        if(shouldIncluded){
+            result += arrayRoundLength[i];
+        }
+    }
+    
+    После:
+    char[] arrayRoundLength = roundLength.toCharArray();
+    string result = "";
+    for(int i = 0; i < arrayRoundLength.length; i ++){
+        if(include){
+            result += arrayRoundLength[i];
+        }
+    }
+//Объявил переменную непосредственно перед использованием.
+
+13) bool outOfBounds = playerPositionX > CELL_FIELD_X || playerPositionY > CELL_FIELD_Y
+    if(outOfBounds){
+        Console.WriteLine("Вы зашли за пределы поля!");
+        //код
+    }
+//Добавил предупреждение при достижении недопустимого значения.
+
+14) if(currentBossHealth <= 0){
+        Console.WriteLine("Босс пал");
+        //код
+     }
+//Аналогично предыдущему пункту.
+
+15) До:
+    int[] result = new int[n];
+    var temp = 0;
+            
+    for (int i = 0; i < n; i++)
+    {
+        temp += x;
+        result[i] += temp;
+    }
+    return result;
+    
+    После:
+    int[] xCount = new int[n];
+    for (int i = 0; i < n; i++){
+        xCount[i] = (i + 1) * x;
+    }
+    return xCount;
+//Избавился от временного переменного.
