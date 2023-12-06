@@ -1,0 +1,198 @@
+~~ Variable Lifetime ~~
+
+1) public partial class Player : CharacterBody3D
+   {
+  	 private const float _moveSpeed = 5.0f;
+  	 private const float _jumpVelocity = 4.5f;
+  	 private const float _sensitivity = 0.01f;
+  	
+  	 //код
+   }
+//Сделал поля приватными.
+
+2) public class ScreenScroller : Node2D
+   {
+   //код
+   
+        public override void _Ready()
+        {
+           sprites = GetChildren();
+           var lastSprite = GetFartherSprite();
+           spriteWidth = lastSprite.Texture.GetWidth() * lastSprite.Scale.x;
+        }
+        //код
+   }
+//группировка связных команд.
+
+3) public class Bird : RigidBody2D
+   {
+   //код
+  
+        public override void _Ready()
+        {
+           sprite = GetNode<Sprite>("Sprite");
+           jumpForce = new Vector2(0, -jump);
+           jumpTimer = new GTimer(this, 250);
+        }
+   //код
+   }
+//группировка связных команд.
+
+4) public Node2D Spawn(Vector2 position, Vector2 scale)
+   {
+        foreach (Obstacle objectPool in objects)
+        {
+            if (!objectPool.Visible)
+            {
+                objectPool.Visible = true;
+                objectPool.Position = position;
+                objectPool.Scale = scale;
+                objectPool.SetProcess(true);
+                objectPool.Speed = GameManager.Instance.Speed;
+                return objectPool;
+            }
+        }
+  
+        return null;
+   }
+//группировка связных команд.
+
+5) private void InitTimer(Node target, int delayMs, bool loop, bool autoStart)
+   {
+        _timer.WaitTime = delayMs / 1000f;
+        Delay = _timer.WaitTime;
+        _timer.OneShot = !loop;
+        _timer.Autostart = autoStart;
+        target.AddChild(_timer);
+   }
+//Группировка связных команд.
+
+6) public class Pointer : Sprite
+   {
+  	 internal Sprite sprite = null;
+  	 internal AudioStreamPlayer2D audio = null;
+  	 internal List<Control> entries = new List<Control>();
+  	 internal Vector2 prevPosition, nextPosition, delta;
+  	 private int _index = 0;
+  	 //код
+   }
+//Снизил область видимости переменных с public на internal.
+
+7) public void OnMobTimerTimeout()
+   {
+        var mob = (Mob)MobScene.Instance();
+        
+        var mobSpawnLocation = GetNode<PathFollow2D>("MobPath/MobSpawnLocation");
+        mobSpawnLocation.Offset = GD.Randi();
+        
+        float direction = mobSpawnLocation.Rotation + Mathf.Pi / 2;
+        mob.Position = mobSpawnLocation.Position;
+        
+        direction += (float)GD.RandRange(-Mathf.Pi / 4, Mathf.Pi / 4);
+        mob.Rotation = direction;
+        
+        var velocity = new Vector2((float)GD.RandRange(150.0, 250.0), 0);
+        mob.LinearVelocity = velocity.Rotated(direction);
+        
+        AddChild(mob);
+   }
+//Группировка связных команд.
+
+8) public struct Cell
+   {
+        public CellType CellType;
+        public Color Color;
+        public byte Clock;
+   
+        private static const Color COLOR_SAND = new Color(1.0f, 0.82f, 0.0f, 1.0f);
+        private static const Color COLOR_WATER = new Color(0.0f, 0.0f, 1.0f, 1.0f);
+        private static const Color COLOR_TRANSPARENT = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+        private static const Color COLOR_WALL = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+        //код
+   }
+//Снизил область видимости полей на private(последние 4 переменных структуры).
+
+9) {
+        int score = 0;
+        
+        hud.update_score(score);
+        hud.show_game_over();
+        
+        scoreTimer.Stop();
+        mobTimer.Stop();
+        
+        var children = GetChildren();
+        foreach(var child in children)
+        {
+            if(child is Mob)
+            {
+                var mob = child as Mob;
+                mob.QueueFree();
+            }
+        }
+  
+        hud.show_game_over();
+    }
+//Уменьшение область видимости score
+
+10) {
+    int countSheeps = 0;
+    foreach (bool sheep in sheeps){
+        if(sheep) countSheeps++;
+    }
+    return countSheeps;
+    }
+//Уменьшение область видимости переменной countSheeps.
+
+11){
+        int peopleIn  = 0;
+        int peopleOut = 0;
+        for(int i = 0; i < peopleListInOut.Count; i++)
+        {
+            peopleIn  += peopleListInOut[i][0];
+            peopleOut += peopleListInOut[i][1];
+        }
+        return peopleIn - peopleOut;
+   }
+//Аналогично с предыдущим пунктом снизил видимость переменных peopleIn и peopleOut.
+
+12) public partial class CarefulDude : CharacterBody3D
+    {
+        private const float _speed = 5.0f;
+        private const float _jumpVelocity = 4.5f;
+        private float _gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+        //код
+    }
+//Снизил область видимости полей с public на private.
+
+13) public void DropXP()
+    {
+        var xpOrb = (XPOrb)Prefabs.XP_Orb.Instantiate();
+        xpOrb.Position = Position;
+        xpOrb.Value = 100;
+        
+        GetTree().Root.CallDeferred("add_child", xpOrb);
+        QueueFree();
+    }
+//Группировка связных команд.
+
+14) private void IncreaseDifficulty()
+    {
+        maxEnemiesForDifficulty += maxEnemiesToAddForDifficultyIncrease;
+        maxEnemiesForDifficulty = Mathf.Min(maxEnemiesForDifficulty, MAX_ENEMIES_ON_SCREEN);
+        enemiesToSpawn += enemiesToAddForDifficultyIncrease;
+           
+        OnDifficultyIncrease?.Invoke();
+    }
+//Группировка связных команд.
+
+15) private float GetLastXPosition()
+        {
+            float positionX = Position.x;
+   
+            if (Texture != null)
+                positionX += (Texture.GetWidth() * Scale.x);
+   
+            return positionX;
+        }
+//Снизил область видимости переменной positionX.
