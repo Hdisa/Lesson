@@ -1,0 +1,37 @@
+~~ Variable Binding Time ~~
+
+1) public static int SquareDigits(int n)
+     {
+       string output = "";
+       foreach (char c in n.ToString())
+       {
+         int square = int.Parse(c.ToString());
+         output += (square * square);
+       }
+       return int.Parse(output);
+     }
+/*
+    Переменная output максимально рано связано,
+    поскольку по условиям задачи требует хранения в output возведённые в квадрат цифры с последующим его выводом(return).
+    Нам совершенно не требуется изменять значение output. Поэтому допустим "хардкод".
+*/
+
+2) ENEMY_DAMAGE = 10;
+   TOWER_HEALTH_POINT = 200;
+   //код
+   towerHP = TOWER_HEALTH_POINT;
+   if(onCollisionWithTower)
+   {
+        towerHP -= ENEMY_DAMAGE;
+   }
+/* 
+   Переменной towerHP присвоено значение константы, поскольку для баланса игры может потребоваться часто изменять значения,
+   из-за чего, логично параметризировать значения переменных.
+*/
+
+3) GameObject objectToSpawn = object[Random.Range(0, object.Count)];
+   //код
+/* 
+   Переменная objectToSpawn присваивается во время выполнения программы, поскольку требуется реализовать "рандомизацию",
+   то есть, мы не можем явно знать какой объект появится в игровом поле через x секунд например.
+*/
