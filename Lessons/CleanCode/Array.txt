@@ -1,0 +1,85 @@
+~~ Array ~~
+
+
+1) До:
+   {
+        for(int i = 0; i < keys.Length; i++)
+        {
+        res += keys[j];
+        }
+   }
+   После:
+   {
+        foreach(int key in keys)
+        {
+            res += key;
+        }
+   }
+   
+//работа с массивом без прямой индексации. Замена на foreach.
+
+2) До:
+   {
+      double output = 0;
+      for(int i = 0; i < array.Length; i++){
+        output += array[i];
+      }
+      return output;
+   }
+   После:
+   {
+        return array.Sum();
+   }
+        
+//С помощью Sum() считаем сумму массива.
+
+3)  До:
+    {
+      string result = words[0];
+      for (int i = 1; i < words.Length; ++i) {
+        result += " " + words[i];
+      }
+      return result;
+    }
+    После:
+    {
+    return string.Join(" ", words);
+    }
+//С помощью Join() объединяем набор строк в единую.
+
+4)  До:
+    {
+        int cnt = 0; int l = s.Length;
+        for(int i = 0; i < l; i++) 
+        {
+            int c = (int)s[i];
+            if (c > 109 && c <= 122)
+                cnt++;
+        }
+        return cnt.ToString() + "/" + l.ToString();
+    }
+    После:
+    {
+        char[] colorType = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'};
+        int errorCount = 0;
+    
+        foreach (var symbol in str)
+        {
+            bool hasElement = Array.Exists(colorType, v => v == symbol);
+            if (!hasElement)
+            {
+                errorCount++;
+            }
+        }
+            
+    return String.Format(errorCount+"/"+str.Length);
+    }
+//Замена на foreach, поскольку по условию требует последовательной проверки на отсутствие символа в строке.
+
+5) public void OnPlayerSpawned(PlayerInput player)
+     {
+       Color currentPlayerColor = playerColorsQueue.Dequeue();
+       player.transform.position = playerSpawnPointsQueue.Dequeue().position;
+       player.GetComponentsInChildren<meshrenderer>().ToList().ForEach(x => x.materials[1].SetColor("_EmissionColor", currentPlayerColor));
+     }
+//Замена массива на очередь.
