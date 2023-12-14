@@ -1,0 +1,56 @@
+~~ Comments ~~
+
+3.1
+
+1) bool notAuthorityPlayer = DummyPlayer dummy && dummy.IsMultiplayerAuthority() == false;
+   //Проверить, если сущность - не авторитетный манекен-игрок.
+   if (entity is notAuthorityDummy)
+   {
+        dummy.IntepolateState(pastState, futureState, InterpolationFactor);
+   }
+
+2) bool enabledPreviousState = _snapshotBuffer.Count > 2 && renderTime > _snapshotBuffer[1].Time;
+   //Удаление предыдущих(нежелательных) состояний.
+   while (enabledPreviousState)
+   {
+        _snapshotBuffer.RemoveAt(0);
+   }
+
+3) if (deviation.Length() > 0.05f)
+   {
+        // Согласование с авторитетными состояниями.
+        this.GlobalTransform = expectedTransform;
+        this.Velocity = expectedVelocity;
+   
+        GD.PrintErr($"Client {this.Multiplayer.GetUniqueId()} prediction mismatch!");
+   }
+
+4) else if (_shotDenied == false)
+   {
+        ShootCurrentWeapon();
+  
+        // После выстрела, игрок не может выстрелить во второй раз, пока не отпустит кнопку выстрела.
+        _shotDenied = true;
+   }
+
+5) public void OnPlayerBodyEntered(PhysicsBody2D body)
+   {
+        Hide();
+        EmitSignal(nameof(Hit));
+        //Необходимо отcрочить, поскольку не можем изменять физические свойства при обратном вызове.
+        GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+   }
+
+6) bool requiredSenior = data[i][0] >= 55 && data[i][1] > 7;
+   //Проверка, если выполнены требования для сеньора.
+   if(requiredSenior)
+   { 
+        openOrSenior.Add("Senior"); 
+   }
+
+7) bool haveSymbol = Array.Exists(colorType, v => v == symbol);
+   //Проверка, если в строке нет символа, входящий в массив.
+   if (!haveSymbol)
+   {
+        errorCount++;
+   }
