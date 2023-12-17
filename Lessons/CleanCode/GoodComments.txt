@@ -1,0 +1,74 @@
+~~ Good Comments ~~
+
+1) //TODO: переделать перезагрузку коллайдера.
+   player.GetNode<CollisionShape3D>("CollisionShape").GlobalRotation = Vector3.Zero;
+   
+//Комментарий TODO.
+
+2) //Эти переменные нужны для отрисовки пикселей мышью.
+   private Vector2 mouseCoords;
+   private Vector2 prevMouseCoords;
+   
+//Информативный комментарий
+
+3) sprite.Texture = imageTexture;
+   sprite.Centered = false;
+   //Назначаем Z-Index в -1, чтобы отобразить позади UI-элементов.
+   sprite.ZIndex = -1;
+   AddChild(sprite);
+   
+//Усиление.
+
+4) //TODO: проверить, если игрок доступен в обоих состояниях.
+   NetMessage.PlayerState futureState = _snapshotBuffer[NextFuture].States[i];
+   NetMessage.PlayerState pastState = _snapshotBuffer[RecentPast].States[i];
+   
+//Комментарий TODO.
+
+5) //TODO: Добавить метод генераций препятствия на пути игрока.
+
+//Комментарий TODO.
+
+6) //Поворачивает и размещает на месте плитку.
+   int filter = (i > 0 ? 1 : 0);
+   tile.Translate(pos + dir * tileSize * filter);
+
+//Информативный комментарий.
+
+7) //Устанавливаем игрока на начало доски.
+   this.Translation = Board.GetTileTransform(Index).origin + _posOffset;
+   
+//Информативный комментарий.
+
+8) //TODO: Ресурсы слишком тяжелы, чтобы нести.
+   public bool CanBeCarried => true;
+
+//Комментарий TODO.
+
+9) public DayNightCycle()
+   {
+        isEnabled = false;
+        AverageSunlight = 1.0f;
+  
+        // Начинаем игру в полдень.
+        FractionOfDayElapsed = 0.5f;
+   }
+
+//Намерение.
+
+10) // для поиска делителей числа достаточно проверить числа до половины числа.
+    for(int d = 2; d < (n / 2); d ++)
+    {
+        ...
+    }
+
+11) //Умножаем на 1.0, чтобы получить дробное число.
+    averageValue = 1.0 * sumOfNumbers / (M - N);
+    
+//Усиление.
+
+12) //Размер шрифта регулируется динамически, поэтому его нужно копировать.
+        latoSmallItalic = (Font)GD.Load("res://src/gui_common/fonts/Lato-Italic-Small.tres").Duplicate();
+        smallFontSize = (int)latoSmallItalic.Get("size");
+
+//Усиление.
