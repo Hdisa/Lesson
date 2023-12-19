@@ -1,0 +1,214 @@
+~~ Bad Comments ~~
+
+1)До:
+    Vector2 paintCoords = prevMouseCoords;
+    
+    // In order to make sure that there are no breaks between appearing pixels as we draw them,
+    // we divide the distance between the latest and previous mouse coordinates into a fixed
+    // number of intervals and paint at the endpoint of each interval. This is not very robust, so this
+    // can be instead implemented like in Sandspiel, where the length of intervals depends of the paint size.
+    Vector2 step = (mouseCoords - prevMouseCoords) / 10;
+    for (int i = 0; i < 10; ++i)
+    {   
+        sandbox.PaintCells(Convert.ToInt32(paintCoords.x), Convert.ToInt32(paintCoords.y), 2, cellType);
+        paintCoords += step;
+    }
+    После:
+    Vector2 paintCoords = prevMouseCoords;
+    
+    // In order to make sure that there are no breaks between appearing pixels as we draw them.
+    Vector2 step = (mouseCoords - prevMouseCoords) / 10;
+    for (int i = 0; i < 10; ++i)
+    {   
+        sandbox.PaintCells(Convert.ToInt32(paintCoords.x), Convert.ToInt32(paintCoords.y), 2, cellType);
+        paintCoords += step;
+    }
+    
+//Шум и избыточный комментарий. Удалил все строки комментария, кроме первого.
+
+2) До:
+    public void SetCell(int x, int y, Cell cell)
+    {
+        cells[x,y] = cell;
+  
+        // I don't know what kind of overhead the Lock() and Unlock() functions have.
+        // It's quite possible that it would be more optimal to call Lock() at the start
+        // of each step and the Unlock() at the end. Or maybe just call Lock() once and
+        // never Unlock()?
+        image.Lock();
+        image.SetPixel(x, y, cell.color);
+        image.Unlock();
+    }
+   
+   После:
+   public void SetCell(int x, int y, Cell cell)
+       {
+       cells[x,y] = cell;
+     
+       image.Lock();
+       image.SetPixel(x, y, cell.color);
+       image.Unlock();
+       }
+//Удалил шумный, на скорую руку комментарий.
+
+3) До:
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        ...
+    }
+    
+    После:
+    public override void _Ready()
+    {
+        ...
+    }
+//Удалил шумный, очевидный комментарий.
+
+4) До:
+     public class Main : Node
+     {
+         // Declare member variables here. Examples:
+         // private int a = 2;
+         // private string b = "text";
+         ...
+     }
+     
+     После:
+     public class Main : Node
+     {
+         ...
+     }
+  
+//Удалил задокументированный код, шумный комментарий.
+
+5) До:
+   // Create a new instance of the Mob scene.
+   var mob = (Mob)MobScene.Instance();
+   
+   После:
+   var mob = (Mob)MobScene.Instance();
+   
+//Удалил шумный комментарий.
+
+6) До:
+   // Spawn the mob by adding it to the Main scene.
+   AddChild(mob);
+   
+   После:
+   AddChild(mob);
+
+//Аналогично с предыдущим пунктом.
+
+7) До:
+   // Represents the API for the cell processing functions.
+   // The idea is to allow the cell processing functions to only care about the relative cell coordinates.
+   // Also, Cell objects do not store their coordinates, so here we encapsulate the coordinates of the
+   // currently processed cell.  
+   class SandApi
+   {
+   ...
+   }
+   
+   После:
+   class SandAPI
+   {
+   ...
+   }
+
+//Удалил "обязательный" комментарий. И скорее всего, сделан на скорую руку.
+
+8) До:
+   // Calculates one step of the sandbox simulation and updates the image correspondingly.
+   public void Process()
+   {
+   ...
+   }
+   
+   После:
+   public void Process()
+   {
+   ...
+   }
+
+//Удалил "обязательный" комментарий.
+
+9) До:
+   // Get the input direction and handle the movement/deceleration.
+   // As good practice, you should replace UI actions with custom gameplay actions.
+   Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+   
+   После:
+   Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+   
+//Удалил шумный комментарий.
+
+10) До:
+    public int BufferTime; // Buffer size in milliseconds
+    
+    После:
+    internal int BufferTimeMs;
+
+//Переименовал переменную и снизил область видимости, так что необходимость в комментарий отпала. Избыточный комментарий.
+
+11) До:
+    // Code executed on the client side only, handles network events
+    public partial class ClientManager : Node
+    {
+    ...
+    }
+    
+    После:
+    public partial class Client : Node
+    {
+    ...
+    }
+//Удалил "обязательный" комментарий и удалил Manager из имени класса.
+
+12) До:
+    // Code executed on the server side only, handles network events
+    public partial class ServerManager : Node
+    {
+    ...
+    }
+    
+    После:
+    public partial class Server : Node
+    {
+    ...
+    }
+//Тоже самое, но уже с классом Сервер.
+
+13) До:
+    // Keeps tracks of delays in the network and adjusts a clock to always be in sync with the server
+    // also calculates latency
+    public partial class NetworkClock : Node
+    {
+    ...
+    }
+    
+    После:
+    public partial class NetworkClock : Node
+    {
+    ...
+    }
+
+//Удалил "обязательный" комментарий.
+
+14) До:
+    // Latency as the difference between when the packet was sent and when it came back divided by 2
+    InmediateLatency = ((int)Time.GetTicksMsec() - sync.ClientTime) / 2;
+    
+    После:
+    ImmediateLatency = ((int)Time.GetTicksMsec() - sync.ClientTime) / 2;
+
+//Удалил шумный комментарий. Исправил опечатку.
+
+15) До:
+    // Time difference between our clock and the server clock accounting for latency
+    Offset = (sync.ServerTime - Clock) + InmediateLatency;
+    
+    После:
+    Offset = (sync.ServerTime - Clock) + ImmediateLatency;
+
+//Удалил шумный комментарий.
