@@ -9,6 +9,7 @@
         <IsTestProject>true</IsTestProject>
         <AssemblyName>AlgorithmsDataStructures.Tests</AssemblyName>
         <RootNamespace>AlgorithmsDataStructures.Tests</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,29 +24,38 @@
 
     <ItemGroup>
       <Compile Remove="Tests\LinkedListTests.cs" />
-      <None Include="Tests\LinkedListTests.cs" />
+      <None Include="Tests\ADSCh.1\BloomFilterTests.cs" />
+      <None Include="Tests\ADSCh.1\DequeTests.cs" />
+      <None Include="Tests\ADSCh.1\DynArrayTests.cs" />
+      <None Include="Tests\ADSCh.1\HashTableTests.cs" />
+      <None Include="Tests\ADSCh.1\LinkedList2Tests.cs" />
       <Compile Remove="Tests\LinkedList2Tests.cs" />
-      <None Include="Tests\LinkedList2Tests.cs" />
       <Compile Remove="Tests\DynArrayTests.cs" />
-      <None Include="Tests\DynArrayTests.cs" />
       <Compile Remove="Tests\StackTests.cs" />
-      <None Include="Tests\StackTests.cs" />
+      <None Include="Tests\ADSCh.1\LinkedListTests.cs" />
+      <None Include="Tests\ADSCh.1\NativeCacheTests.cs" />
+      <None Include="Tests\ADSCh.1\NativeDictionaryTests.cs" />
+      <None Include="Tests\ADSCh.1\OrderedListTests.cs" />
+      <None Include="Tests\ADSCh.1\PowerSetTests.cs" />
+      <None Include="Tests\ADSCh.1\QueueTests.cs" />
       <Compile Remove="Tests\QueueTests.cs" />
-      <None Include="Tests\QueueTests.cs" />
       <Compile Remove="Tests\DequeTests.cs" />
-      <None Include="Tests\DequeTests.cs" />
       <Compile Remove="Tests\OrderedListTests.cs" />
-      <None Include="Tests\OrderedListTests.cs" />
       <Compile Remove="Tests\HashTableTests.cs" />
-      <None Include="Tests\HashTableTests.cs" />
       <Compile Remove="Tests\NativeDictionaryTests.cs" />
-      <None Include="Tests\NativeDictionaryTests.cs" />
       <Compile Remove="Tests\PowerSetTests.cs" />
-      <None Include="Tests\PowerSetTests.cs" />
       <Compile Remove="Tests\BloomFilterTests.cs" />
-      <None Include="Tests\BloomFilterTests.cs" />
       <Compile Remove="Tests\NativeCacheTests.cs" />
-      <None Include="Tests\NativeCacheTests.cs" />
+      <None Include="Tests\ADSCh.1\StackTests.cs" />
     </ItemGroup>
+
+
+
+    <ItemGroup>
+      <Folder Include="Tests\ADSCh.2\" />
+    </ItemGroup>
+
+
+
 
 </Project>
