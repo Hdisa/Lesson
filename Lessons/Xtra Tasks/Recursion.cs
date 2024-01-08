@@ -36,11 +36,30 @@ public static class Recursion
     /// <summary>
     /// 4. Проверка, является ли строка палиндромом.
     /// </summary>
-    public static bool IsPalindrome(string s)
+    public static bool IsPalindrome(string s, int index = 0)
     {
-        if (s.Length <= 1) return true;
-        if (s[0] == s[^1]) return IsPalindrome(s.Substring(1, s.Length - 2));
-        
-        return false;
+        if (index >= s.Length / 2) return true;
+        if (s[index] != s[s.Length - index - 1]) return false;
+        return IsPalindrome(s, index + 1);
+    }
+
+    /// <summary>
+    /// 5. Печатает чётные значения из списка.
+    /// </summary>
+    public static void PrintEvenValuesList(List<int> list, int index = 0)
+    {
+        if (index >= list.Count) return;
+        if (list[index] % 2 == 0) Console.WriteLine(list[index]);
+        PrintEvenValuesList(list, index + 1);
+    }
+
+    /// <summary>
+    /// 6. Печатает значения из чётных индексов списка.
+    /// </summary>
+    public static void PrintEvenIndexValueList<T>(List<T> list, int index = 0)
+    {
+        if (index >= list.Count) return;
+        Console.WriteLine(list[index]);
+        PrintEvenIndexValueList(list, index + 2);
     }
 }
